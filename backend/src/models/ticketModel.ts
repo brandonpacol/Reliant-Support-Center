@@ -1,7 +1,7 @@
 import { getDB } from "../db/database";
 import fs from 'fs';
 import path from "path";
-import { Ticket } from "../types/Ticket";
+import { Ticket, Status, Priority } from "../types/Ticket";
 
 /** Creates the Tickets table for our application.
  * If the table already exists, it will be dropped to start fresh.
@@ -64,5 +64,118 @@ export async function populateTickets() {
 
   } catch (err) {
     console.error("Error in ticketModel.ts populateTickets: ", err);
+  }
+}
+
+/**
+ * Submits a ticket to the DB
+ * @param userID ID of the user submitting the ticket
+ * @param title Title of the ticket
+ * @param description Description of the ticket
+ * @param priority Priority of the Ticket
+ * @returns Boolean of whether the ticket submission was successful
+ */
+export async function submitTicket(userID: number, title: string, description: string, priority: Priority): Promise<boolean> {
+  try {
+
+    const db = await getDB();
+
+    const query = `
+      INSERT INTO Tickets (userID, title, description, priority, status, createdTime, updatedTime)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    const currentDate = new Date(Date.now()).toISOString();
+    const result = await db.run(query, [userID, title, description, priority, Status.Open, currentDate, currentDate]);
+
+    console.log('Successfully added ticket');
+    
+    // Return a success if there were changes made to the DB
+    if (result.changes && result.changes > 0) {
+      return true;
+    } else {
+      return false;
+    }
+
+  } catch (err) {
+    console.error("Error in userModel.ts submitTicket: ", err);
+    return false;
+  }
+}
+
+/**
+ * Gets all tickets from the DB
+ * @returns An array of Ticket data if the operation is successful
+ */
+export async function getTickets(): Promise<Ticket[] | undefined> {
+  try {
+
+    const db = await getDB();
+
+    const query = "SELECT * FROM Tickets"
+    const tickets: Ticket[] = await db.all(query);
+
+    console.log("successfully retrieved tickets");
+    return tickets;
+
+  } catch (err) {
+    console.error("Error in userModel.ts getTickets: ", err);
+    return undefined;
+  }
+}
+
+/**
+ * Gets the specified ticket given the ticketID
+ * @param ticketID ID of the ticket to grab
+ * @returns The Ticket data if the operation is successful
+ */
+export async function getTicket(ticketID: number): Promise<Ticket | undefined> {
+  try {
+
+    const db = await getDB();
+
+    const query = "SELECT * FROM Tickets WHERE ticketID = ?"
+    const ticket: Ticket | undefined = await db.get(query, [ticketID]);
+
+    console.log("successfully retrieved ticket");
+    return ticket;
+    
+  } catch (err) {
+    console.error("Error in userModel.ts getTicket: ", err);
+    return undefined;
+  }
+}
+
+/**
+ * Updates the status of the specified ticketID
+ * @param ticketID ID of the ticket to update
+ * @param status The status to update the ticket to
+ * @returns A boolean of whether the update was successful or not
+ */
+export async function updateTicket(ticketID: number, status: Status): Promise<boolean> {
+  try {
+
+    const db = await getDB();
+
+    const query = `
+      UPDATE Tickets
+      SET status = ?
+      WHERE ticketID = ?
+    `;
+
+    const result = await db.run(query, [status, ticketID]);
+
+    console.log("successfully updated ticket");
+
+    // Return a success if there were changes made to the DB
+    if (result.changes && result.changes > 0) {
+      return true;
+    } else {
+      return false;
+    }
+
+  } catch (err) {
+    console.error("Error in userModel.ts updateTicket: ", err);
+    return false;
   }
 }
