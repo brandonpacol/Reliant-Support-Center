@@ -10,10 +10,12 @@ let db: Database | null = null;
 */
 export async function getDB(): Promise<Database> {
     if (!db) { // only open the db if it doesn't exist yet
-        db = await open({
-            filename: './main.db',
-            driver: sqlite3.Database
-        });
+      db = await open({
+        filename: './main.db',
+        driver: sqlite3.Database
+      });
+      // Enable foreign key constraint
+      await db.exec("PRAGMA foreign_keys = ON");
     }
     return db;
 }

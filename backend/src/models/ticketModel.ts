@@ -13,15 +13,16 @@ export async function createTicketsTable() {
 
     // Then, create the table
     const query = `
-        CREATE TABLE IF NOT EXISTS Tickets (
-          ticketID INTEGER PRIMARY KEY AUTOINCREMENT,
-          userID INTEGER FOREIGN KEY REFERENCES Users(userID),
-          title TEXT NOT NULL,
-          description TEXT NOT NULL,
-          priority INTEGER NOT NULL,
-          status TEXT NOT NULL,
-          createdTime TEXT NOT NULL,
-          updatedTime TEXT NOT NULL
+      CREATE TABLE IF NOT EXISTS Tickets (
+        ticketID INTEGER PRIMARY KEY AUTOINCREMENT,
+        userID INTEGER,
+        title TEXT NOT NULL,
+        description TEXT NOT NULL,
+        priority INTEGER NOT NULL,
+        status TEXT NOT NULL,
+        createdTime TEXT NOT NULL,
+        updatedTime TEXT NOT NULL,
+        FOREIGN KEY (userID) REFERENCES Users(userID)
       );
     `;
     await db.exec(query);
