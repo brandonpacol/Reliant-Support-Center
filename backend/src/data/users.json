@@ -1,0 +1,23 @@
+[
+  {
+    "username": "brandon",
+    "firstName": "Brandon",
+    "lastName": "Pacol",
+    "password": "password",
+    "isAdmin": true
+  },
+  {
+    "username": "john",
+    "firstName": "John",
+    "lastName": "Abassian",
+    "password": "password",
+    "isAdmin": false
+  },
+  {
+    "username": "ben",
+    "firstName": "Ben",
+    "lastName": "Wilkinson",
+    "password": "password",
+    "isAdmin": false
+  }
+]

@@ -1,11 +1,19 @@
 import sqlite3 from 'sqlite3';
+import { open, Database } from 'sqlite';
 
-const db = new sqlite3.Database('./main.db', (err: Error | null) => {
-  if (err) {
-    console.error('Error opening database ' + err.message);
-  } else {
-    console.log('Database connected!');
-  }
-});
+/** Holds the DB object we will use throughout our application. */
+let db: Database | null = null;
 
-export default db;
+/** Gets the DB object used throughout our application. 
+ * If the DB is not opened, this function will open the DB connection.
+ * If it is already open, we will just return the DB object.
+*/
+export async function getDB(): Promise<Database> {
+    if (!db) { // only open the db if it doesn't exist yet
+        db = await open({
+            filename: './main.db',
+            driver: sqlite3.Database
+        });
+    }
+    return db;
+}
