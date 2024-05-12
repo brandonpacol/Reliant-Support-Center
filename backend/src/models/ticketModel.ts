@@ -98,7 +98,7 @@ export async function submitTicket(userID: number, title: string, description: s
     }
 
   } catch (err) {
-    console.error("Error in userModel.ts submitTicket: ", err);
+    console.error("Error in ticketModel.ts submitTicket: ", err);
     return false;
   }
 }
@@ -119,7 +119,7 @@ export async function getTickets(): Promise<Ticket[] | undefined> {
     return tickets;
 
   } catch (err) {
-    console.error("Error in userModel.ts getTickets: ", err);
+    console.error("Error in ticketModel.ts getTickets: ", err);
     return undefined;
   }
 }
@@ -141,7 +141,7 @@ export async function getTicket(ticketID: number): Promise<Ticket | undefined> {
     return ticket;
     
   } catch (err) {
-    console.error("Error in userModel.ts getTicket: ", err);
+    console.error("Error in ticketModel.ts getTicket: ", err);
     return undefined;
   }
 }
@@ -175,7 +175,7 @@ export async function updateTicket(ticketID: number, status: Status): Promise<bo
     }
 
   } catch (err) {
-    console.error("Error in userModel.ts updateTicket: ", err);
+    console.error("Error in ticketModel.ts updateTicket: ", err);
     return false;
   }
 }
