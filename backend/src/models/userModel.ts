@@ -16,14 +16,14 @@ export async function createUsersTable() {
 
     // Then, create the table
     const query = `
-    CREATE TABLE IF NOT EXISTS Users (
-      userID INTEGER PRIMARY KEY AUTOINCREMENT,
-      username TEXT NOT NULL UNIQUE,
-      firstName TEXT NOT NULL,
-      lastName TEXT NOT NULL,
-      password TEXT NOT NULL,
-      isAdmin BOOLEAN NOT NULL DEFAULT 0
-    );
+      CREATE TABLE IF NOT EXISTS Users (
+        userID INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL UNIQUE,
+        firstName TEXT NOT NULL,
+        lastName TEXT NOT NULL,
+        password TEXT NOT NULL,
+        isAdmin BOOLEAN NOT NULL DEFAULT 0
+      );
     `;
     await db.exec(query);
 
@@ -60,7 +60,7 @@ export async function populateUsers() {
     console.log('All users have been inserted.');
 
   } catch (err) {
-    console.error("Error in userModel.ts initializeUsers: ", err);
+    console.error("Error in userModel.ts populateUsers: ", err);
   }
 }
 

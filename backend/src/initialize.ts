@@ -1,5 +1,5 @@
 import { createUsersTable, populateUsers } from "./models/userModel";
-import { createTicketsTable } from "./models/ticketModel";
+import { createTicketsTable, populateTickets } from "./models/ticketModel";
 
 /** Initializes and populates the tables in our application. */
 async function initialize() {
@@ -7,6 +7,7 @@ async function initialize() {
     await createUsersTable();
     await populateUsers();
     await createTicketsTable();
+    await populateTickets();
   } catch (err) {
     console.error("Error in initialize.ts: ", err);
   }

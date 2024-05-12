@@ -23,6 +23,6 @@ export enum Priority {
 // Not using numbers since there's no inherent sorting with statuses.
 export enum Status {
   Open = "open",
-  Closed = "closed",
-  Pending = "pending"
+  InProgress = "in progress",
+  Resolved = "resolved"
 }
