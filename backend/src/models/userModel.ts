@@ -30,7 +30,7 @@ export async function createUsersTable() {
     console.log("Users table successfully created");
 
   } catch (err) {
-    console.error("Error in userModel.ts createTable: ", err);
+    console.error("Error in userModel.ts createUsersTable: ", err);
   }
 }
 
