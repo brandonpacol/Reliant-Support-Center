@@ -3,7 +3,7 @@ import { getTicket, getTickets, submitTicket, updateTicket } from '../models/tic
 import { Status, Priority } from '../types/Ticket';
 
 /** Represents the body passed to the ticket api requests. */
-interface TicketBody {
+interface TicketRequestBody {
   ticketID?: number;
   status?: Status;
   userID?: number;
@@ -18,7 +18,7 @@ const ticketRouter = express.Router();
 // Request body must contain the userID, title, description, and priority
 ticketRouter.post('/tickets', async (req: Request, res: Response) => {
   try {
-    const body: TicketBody = req.body;
+    const body: TicketRequestBody = req.body;
 
     const userID = body.userID;
     const title = body.title;
@@ -69,7 +69,7 @@ ticketRouter.get('/tickets', async (req: Request, res: Response) => {
 ticketRouter.get('/tickets/:id', validateTicketID, async (req: Request, res: Response) => {
   try {
 
-    const body: TicketBody = req.body;
+    const body: TicketRequestBody = req.body;
     const id = body.ticketID;
 
     if (id) { // Validate that an ID number is present
@@ -97,7 +97,7 @@ ticketRouter.get('/tickets/:id', validateTicketID, async (req: Request, res: Res
 ticketRouter.put('/tickets/:id', validateTicketID, async (req: Request, res: Response) => {
   try {
 
-    const body: TicketBody = req.body;
+    const body: TicketRequestBody = req.body;
 
     const id = body.ticketID;
     const status = body.status;

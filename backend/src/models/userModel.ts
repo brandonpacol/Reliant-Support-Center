@@ -64,3 +64,25 @@ export async function populateUsers() {
   }
 }
 
+/**
+ * Gets the specified user given their username
+ * @param username username of the user
+ * @returns The User data if the operation is successful
+ */
+export async function getUser(username: string): Promise<User | undefined> {
+  try {
+
+    const db = await getDB();
+
+    const query = "SELECT * FROM Users WHERE username = ?";
+    const user: User | undefined = await db.get(query, [username]);
+
+    console.log("successfully retrieved user");
+    return user;
+
+  } catch (err) {
+    console.error("Error in userModel.ts getUser: ", err);
+    return undefined;
+  }
+}
+

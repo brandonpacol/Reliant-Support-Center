@@ -6,19 +6,23 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "npx ts-node src/index.ts",
+    "dev": "npx ts-node --files src/index.ts",
     "init": "npx ts-node src/initialize.ts"
   },
   "author": "Brandon Pacol",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
+    "@types/express-session": "^1.18.0",
     "@types/node": "^20.12.11",
     "@types/sqlite3": "^3.1.11",
     "typescript": "^5.4.5"
