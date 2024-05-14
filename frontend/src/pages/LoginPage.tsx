@@ -32,7 +32,7 @@ function LoginPage() {
 
       if (result.ok) {
         console.log("Successful login!");
-        navigate("/home");
+        navigate("/tickets");
       } else {
         console.error("Error logging in.");
       }
