@@ -45,6 +45,10 @@ function TicketsPage() {
     }
   }
 
+  async function handleNewTicket() {
+    navigate('/submit-ticket');
+  }
+
   return (
     <>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -70,7 +74,7 @@ function TicketsPage() {
             <option value="3">Low</option>
           </select>
 
-          <button>+ New Ticket</button>
+          <button onClick={handleNewTicket}>+ New Ticket</button>
         </div>
       </div>
 

@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import TicketsPage from './pages/TicketsPage';
 import LoginPage from './pages/LoginPage';
+import TicketsPage from './pages/TicketsPage';
+import TicketDetailsPage from './pages/TicketDetailsPage';
+import TicketSubmissionPage from './pages/TicketSubmissionPage';
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/tickets" element={<TicketsPage />} />
+        <Route path="/tickets/:id" element={<TicketDetailsPage />} />
+        <Route path="/submit-ticket" element={<TicketSubmissionPage />} />
       </Routes>
     </div>
   );

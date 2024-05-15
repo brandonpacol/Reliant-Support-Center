@@ -14,13 +14,16 @@ interface TicketRequestBody {
 
 const ticketRouter = express.Router();
 
+ticketRouter.use(checkUserIsAuthenticated);
+
 // POST /tickets request
 // Request body must contain the userID, title, description, and priority
 ticketRouter.post('/tickets', async (req: Request, res: Response) => {
   try {
+    
     const body: TicketRequestBody = req.body;
 
-    const userID = body.userID;
+    const userID = req.session.user?.userID;
     const title = body.title;
     const description = body.description;
     const priority = body.priority;
@@ -123,6 +126,11 @@ ticketRouter.put('/tickets/:id', validateTicketID, async (req: Request, res: Res
     res.status(500).send("Error updating ticket: " + err);
   }
 });
+
+function checkUserIsAuthenticated(req: Request, res: Response, next: Function) {
+  if (!req.session.user) return res.status(401).send("Unauthorized.");
+  next();
+}
 
 /** Middleware which validates that the ticketID is a number and adds it to the request body. */
 function validateTicketID(req: Request, res: Response, next: Function) {

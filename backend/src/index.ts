@@ -24,8 +24,8 @@ app.use(session({
   cookie: { secure: 'auto', httpOnly: true, maxAge: 3600000 }
 }));
 
-app.use('/api', ticketRouter);
 app.use('/api', userRouter);
+app.use('/api', ticketRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');

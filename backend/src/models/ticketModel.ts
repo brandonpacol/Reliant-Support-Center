@@ -112,7 +112,10 @@ export async function getTickets(): Promise<Ticket[] | undefined> {
 
     const db = await getDB();
 
-    const query = "SELECT * FROM Tickets"
+    const query = `
+      SELECT Tickets.*, Users.userID,  Users.username,  Users.firstName, Users.lastName
+      FROM Tickets
+      INNER JOIN Users ON Tickets.userID = Users.userID`;
     const tickets: Ticket[] = await db.all(query);
 
     console.log("successfully retrieved tickets");
@@ -134,7 +137,11 @@ export async function getTicket(ticketID: number): Promise<Ticket | undefined> {
 
     const db = await getDB();
 
-    const query = "SELECT * FROM Tickets WHERE ticketID = ?"
+    const query = `
+      SELECT Tickets.*, Users.userID,  Users.username,  Users.firstName, Users.lastName
+      FROM Tickets
+      INNER JOIN Users ON Tickets.userID = Users.userID
+      WHERE ticketID = ?`
     const ticket: Ticket | undefined = await db.get(query, [ticketID]);
 
     console.log("successfully retrieved ticket");

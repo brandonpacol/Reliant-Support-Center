@@ -8,6 +8,9 @@ export interface Ticket {
   status: string;
   createdTime: string;
   updatedTime: string;
+  username: string;
+  firstName: string;
+  lastName: string;
 }
 
 /** Ticket priority enum */
