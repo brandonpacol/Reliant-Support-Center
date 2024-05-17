@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 
 function TicketSubmissionPage() {
@@ -52,26 +53,30 @@ function TicketSubmissionPage() {
 
   return (
     <>
-      <h1>New Ticket</h1>
+      <Navbar />
 
-      <form onSubmit={handleSubmit}>
+      <div style={{padding: "1em"}}>
+        <h1>New Ticket</h1>
 
-        <label htmlFor="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" value={title} onChange={handleTitleChange}/>
+        <form onSubmit={handleSubmit}>
 
-        <label htmlFor="description">Description:</label>
-        <textarea id="description" name="description" value={desc} onChange={handleDescChange}/>
+          <label htmlFor="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" value={title} onChange={handleTitleChange} />
 
-        <label htmlFor="priority">Priority</label>
-        <select id="priority" name="priority" value={priority} onChange={handlePriorityChange}>
-          <option value="3">Low</option>
-          <option value="2">Medium</option>
-          <option value="1">High</option>
-        </select>
+          <label htmlFor="description">Description:</label>
+          <textarea id="description" name="description" value={desc} onChange={handleDescChange} />
 
-        <button type="submit">Submit</button>
+          <label htmlFor="priority">Priority</label>
+          <select id="priority" name="priority" value={priority} onChange={handlePriorityChange}>
+            <option value="3">Low</option>
+            <option value="2">Medium</option>
+            <option value="1">High</option>
+          </select>
 
-      </form>
+          <button type="submit">Submit</button>
+
+        </form>
+      </div>
 
     </>
     
