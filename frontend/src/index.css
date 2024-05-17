@@ -10,6 +10,10 @@ button {
   border: 0;
 }
 
+textarea {
+  resize: none;
+}
+
 table {
   border-collapse: collapse;
 }
