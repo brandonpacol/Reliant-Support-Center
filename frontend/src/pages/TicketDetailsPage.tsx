@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { Ticket, getPriorityName } from '../types/Ticket';
+import StatusTag from '../components/StatusTag';
+import PriorityTag from '../components/PriorityTag';
+import { Ticket } from '../types/Ticket';
+import "./TicketDetailsPage.css"
 
 function TicketDetailsPage() {
 
@@ -38,36 +41,35 @@ function TicketDetailsPage() {
     year: 'numeric'
   };
 
-  const priority = getPriorityName(ticket.priority) || "N/A";
-
   return (
     <>
       <Navbar />
-      <div style={{padding: "1em", display: "flex" , justifyContent: "center", alignItems: "center"}}>
 
-        <div style={{backgroundColor: "#00000010", padding: "2em", borderRadius: "1em", width: "75%"}}>
-          <h2 style={{marginTop: 0, textAlign: "center"}}>{ticket.title}</h2>
+      <div className="page-container">
+
+        <div className="form-container">
+          <h2 id="ticket-title">{ticket.title}</h2>
 
           <hr />
 
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
+          <div id="details-container">
+            <div>
               <h3>Ticket ID: {ticket.ticketID}</h3>
-              <span style={{ marginLeft: "1em" }}>by {ticket.firstName} {ticket.lastName}</span>
+              <span>by {ticket.firstName} {ticket.lastName}</span>
             </div>
 
-            <div>
-              <span style={{ marginLeft: "1em", backgroundColor: "#BAC550", padding: "0.5em", borderRadius: "0.5em" }}>{ticket.status}</span>
-              <span style={{ marginLeft: "1em", backgroundColor: "red", padding: "0.5em", borderRadius: "0.5em", color: "white" }}>{priority}</span>
+            <div style={{display: "flex", gap: "1em"}}>
+              <StatusTag style={{width: "unset"}} status={ticket.status} />
+              <PriorityTag style={{width: "unset"}} priority={ticket.priority} />
             </div>
             
           </div>
 
           <p>{ticket.description}</p>
 
-          <div style={{ fontWeight: "bold", marginTop: "4em" }}>
+          <div id="date-container">
             <span>Created: {createdTime.toLocaleString('en-us', options)}</span>
-            <span style={{ marginLeft: "1em" }}>Last updated: {updatedTime.toLocaleString('en-us', options)}</span>
+            <span>Last updated: {updatedTime.toLocaleString('en-us', options)}</span>
           </div>
         </div>
         

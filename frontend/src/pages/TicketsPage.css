@@ -1,0 +1,79 @@
+#ticket-container {
+  width: 75em;
+}
+
+#ticket-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+#controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#controls-container .status-select {
+  padding: 0.5em;
+  margin-right: 1em;
+  border-radius: 0.5em;
+  border-color: #ddd;
+  background-color: #e6f1fc;
+}
+
+#controls-container .priority-select {
+  padding: 0.5em;
+  margin-right: 1em;
+  border-radius: 0.5em;
+  border-color: #ddd;
+  background-color: #e6f1fc;
+}
+
+#controls-container #ticket-btn {
+  padding: 0.5em;
+  font-size: 1em;
+  border-radius: 0.5em;
+}
+
+#table-container {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 0.5em;
+  display: block;
+  background-color: #00000005;
+  border-color: #ddd;
+  border-width: 0.1em;
+  border-style: solid;
+}
+
+#ticket-table {
+  width: 100%;
+}
+
+#ticket-table thead {
+  background-color: #e6f1fc;
+}
+
+#ticket-table th#subject-heading {
+  text-align: left;
+  font-size: 1.1em;
+}
+
+#ticket-table th {
+  text-align: center;
+  font-size: 1.1em;
+}
+
+#ticket-table .tag-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ticket-table td.subject {
+  text-align: left;
+}
+
+#ticket-table td {
+  text-align: center;
+}

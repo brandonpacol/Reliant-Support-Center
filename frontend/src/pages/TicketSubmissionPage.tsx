@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import "./TicketSubmissionPage.css";
 
 function TicketSubmissionPage() {
 
@@ -55,36 +56,36 @@ function TicketSubmissionPage() {
     <>
       <Navbar />
 
-      <div style={{padding: "1em", display: "flex" , justifyContent: "center", alignItems: "center"}}>
+      <div id="ticket-submission-page" className="page-container">
 
-        <div style={{backgroundColor: "#00000010", padding: "2em", borderRadius: "1em", width: "75%"}}>
+        <div className="form-container">
           <h2 style={{marginTop: 0}}>Submit a New Ticket</h2>
 
           <hr />
 
           <form onSubmit={handleSubmit}>
 
-            <div style={{marginBottom: "1em", marginTop: "2em", display: "flex", paddingTop: "0.5em"}}>
-              <label style={{flex: "0 0 8em"}} htmlFor="subject">Subject:</label>
-              <input style={{flex: 1, padding: "0.5em"}} type="text" id="subject" name="subject" value={title} onChange={handleTitleChange} />
+            <div className="input-container">
+              <label htmlFor="subject">Subject:</label>
+              <input className="input-field" style={{flex: 1, padding: "0.5em"}} type="text" id="subject" name="subject" value={title} onChange={handleTitleChange} />
             </div>
 
-            <div style={{marginBottom: "1em", display: "flex" }}>
-              <label style={{flex: "0 0 8em", paddingTop: "0.5em" }} htmlFor="description">Description:</label>
-              <textarea style={{flex: 1, padding: "0.5em"}} id="description" name="description" rows={5} value={desc} onChange={handleDescChange} />
+            <div className="input-container">
+              <label htmlFor="description">Description:</label>
+              <textarea className="input-field" style={{flex: 1, padding: "0.5em"}} id="description" name="description" rows={5} value={desc} onChange={handleDescChange} />
             </div>
 
-            <div style={{marginBottom: "1em", display: "flex"}}>
-              <label style={{flex: "0 0 8em", paddingTop: "0.5em" }} htmlFor="priority">Priority:</label>
-              <select style={{padding: "0.5em"}} id="priority" name="priority" value={priority} onChange={handlePriorityChange}>
+            <div className="input-container">
+              <label htmlFor="priority">Priority:</label>
+              <select id="priority-select" name="priority" value={priority} onChange={handlePriorityChange}>
                 <option value="3">Low</option>
                 <option value="2">Medium</option>
                 <option value="1">High</option>
               </select>
             </div>
 
-            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-              <button style={{backgroundColor: "#5D7790", color: "white", padding: "0.5em", borderRadius: "0.5em", fontSize: "1em"}} type="submit">Submit</button>
+            <div id="submit-btn-container">
+              <button id="submit-btn" type="submit">Submit</button>
             </div>
 
           </form>

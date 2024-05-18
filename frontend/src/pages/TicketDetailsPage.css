@@ -1,0 +1,23 @@
+#ticket-title {
+  margin-top: 0;
+  text-align: center;
+}
+
+#details-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#details-container > div {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+#date-container {
+  display: flex;
+  gap: 1em;
+  font-weight: bold;
+  margin-top: 4em;
+}

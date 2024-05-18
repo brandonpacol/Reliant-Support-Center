@@ -1,0 +1,39 @@
+#ticket-submission-page .form-container hr {
+  margin-bottom: 2em;
+}
+
+.input-container {
+  margin-bottom: 1em;
+  display: flex;
+}
+
+.input-container label {
+  flex: 0 0 8em;
+  margin-top: 0.25em;
+}
+
+.input-container .input-field {
+  flex: 1;
+  padding: 0.5em;
+}
+
+.input-container #priority-select {
+  padding: 0.5em;
+  background-color: white;
+}
+
+#submit-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#submit-btn {
+  background-color: #5D7790;
+  color: white;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  font-size: 1em;
+}
+
+

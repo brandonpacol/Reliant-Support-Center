@@ -1,0 +1,24 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5D7790;
+  padding: 0.5em;
+}
+
+.nav-title {
+  color: white;
+  cursor: pointer;
+}
+
+.logout-btn {
+  padding: 0.5em;
+  background-color: transparent;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 0.5em;
+  color: white;
+  border-color: white;
+  border-width: 0.1em;
+  border-style: solid;
+}

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
 
@@ -26,10 +27,10 @@ function handleHomeClick() {
 }
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#5D7790", padding: "0.5em" }}>
-      <h1 onClick={handleHomeClick} style={{color: "white", cursor: "pointer"}}>Reliant Support Center</h1>
+    <div className="nav-container">
+      <h1 className="nav-title" onClick={handleHomeClick} >Reliant Support Center</h1>
       <button
-        style={{padding: "0.5em", backgroundColor: "transparent", fontSize: "1em", fontWeight: "bold", borderRadius: "0.5em", color: "white", borderColor: "white", borderWidth: "0.1em", borderStyle: "solid" }}
+        className="logout-btn"
         onClick={handleLogout}
       >
         Logout

@@ -22,7 +22,7 @@
     "title": "Issues filtering tickets",
     "description": "Occasionally, the wrong tickets are shown when filtering tickets.",
     "priority": 3,
-    "status": "closed",
+    "status": "resolved",
     "createdTime": "2024-05-12T02:29:00.599Z",
     "updatedTime": "2024-05-13T02:29:00.599Z"
   }
