@@ -18,6 +18,7 @@ function TicketDetailsPage() {
 
   const { id } = useParams();
   const [ticket, setTicket] = useState<Ticket | undefined>(undefined);
+  const [error, setError] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
@@ -34,10 +35,12 @@ function TicketDetailsPage() {
           setIsAdmin(isAdmin);
         } else {
           console.error("Error fetching tickets.");
+          setError(true);
         }
 
       } catch (err) {
         console.error("Error fetching tickets: ", err);
+        setError(true);
       }
     }
     fetchTicket();
@@ -113,8 +116,8 @@ function TicketDetailsPage() {
           </div>
 
         </div>}
-        
 
+        {error && <p>There was an error loading your ticket.</p>}
       </div>
     </>
   )

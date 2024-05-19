@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { User } from '../types/User';
 import { getTicket, getTickets, submitTicket, updateTicket } from '../models/ticketModel';
 import { Status, Priority } from '../types/Ticket';
 
@@ -54,10 +55,11 @@ ticketRouter.post('/tickets', async (req: Request, res: Response) => {
 ticketRouter.get('/tickets', async (req: Request, res: Response) => {
   try {
 
+    const user = req.session.user as User;
     const status = req.query.status as string | undefined;
     const priority = req.query.priority as string | undefined;
     
-    const result = await getTickets(status, priority);
+    const result = await getTickets(user, status, priority);
 
     if (result) {
       res.json(result);
@@ -81,14 +83,21 @@ ticketRouter.get('/tickets/:id', validateTicketID, async (req: Request, res: Res
     if (id) { // Validate that an ID number is present
       
       const result = await getTicket(id);
-      console.warn(req.session.user?.isAdmin);
+
       if (result) {
-        res.json({
-          ticket: result,
-          isAdmin: req.session.user?.isAdmin === 1 // Determine if the authenticated user can edit the ticket status
-        });
+
+        const user = req.session.user;
+        if (user?.isAdmin || result.userID === user?.userID) {
+          res.json({
+            ticket: result,
+            isAdmin: req.session.user?.isAdmin === 1 // Determine if the authenticated user can edit the ticket status
+          });
+        } else {
+          res.status(401).send("Unauthorized."); // The user should only be able to access their tickets.
+        }
+
       } else {
-        res.status(404).send("Ticket not found.")
+        res.status(404).send("Ticket not found.");
       }
 
     } else {

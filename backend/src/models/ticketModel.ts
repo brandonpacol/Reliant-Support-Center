@@ -1,6 +1,7 @@
 import { getDB } from "../db/database";
 import fs from 'fs';
 import path from "path";
+import { User } from "../types/User";
 import { Ticket, Status, Priority } from "../types/Ticket";
 
 /** Creates the Tickets table for our application.
@@ -107,7 +108,7 @@ export async function submitTicket(userID: number, title: string, description: s
  * Gets all tickets from the DB
  * @returns An array of Ticket data if the operation is successful
  */
-export async function getTickets(status?: string, priority?: string): Promise<Ticket[] | undefined> {
+export async function getTickets(user: User, status?: string, priority?: string): Promise<Ticket[] | undefined> {
   try {
 
     const db = await getDB();
@@ -121,6 +122,13 @@ export async function getTickets(status?: string, priority?: string): Promise<Ti
 
     // Append conditions if necessary
     let conditions = [];
+    if (!user.isAdmin) { // if the user is not an admin, only get their tickets
+      if (user.userID) {
+        conditions.push(`Users.userID = ?`);
+      } else {
+        return undefined; // Don't return anything if we can't get the userID. Shouldn't get hit here.
+      }
+    }
     if (status) {
       conditions.push(`Tickets.status = ?`);
     }
@@ -138,7 +146,14 @@ export async function getTickets(status?: string, priority?: string): Promise<Ti
     // Prepare the query with the parameters
     const getStatement = await db.prepare(query);
 
-    const params: string[] = [];
+    const params: (string | number)[] = [];
+    if (!user.isAdmin) {
+      if (user.userID) {
+        params.push(user.userID);
+      } else {
+        return undefined; // Don't return anything if we can't get the userID. Shouldn't get hit here.
+      }
+    }
     if (status) {
       params.push(status);
     }
