@@ -58,6 +58,7 @@
 #ticket-table th#subject-heading {
   text-align: left;
   font-size: 1.1em;
+  width: 30em;
 }
 
 #ticket-table th {
@@ -73,8 +74,18 @@
 
 #ticket-table td.subject {
   text-align: left;
+  width: 30em;
 }
 
 #ticket-table td {
   text-align: center;
+  cursor: pointer;
+}
+
+#ticket-table tbody tr{
+  transition: background-color 0.1s;
+}
+
+#ticket-table tbody tr:hover {
+  background-color: #00000005;
 }

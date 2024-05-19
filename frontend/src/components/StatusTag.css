@@ -3,4 +3,33 @@
   border-radius: 0.5em;
   width: 6em;
   text-align: center;
+  cursor: default;
+}
+
+td .status-tag, .editable-status .status-tag {
+  cursor: pointer;
+}
+
+.status-tag-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  margin-top: 0.8em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.status-tag-dropdown .radio-option {
+  margin-bottom: 0.5em;
+}
+
+.radio-option input, .radio-option label {
+  cursor: pointer;
+}
+
+.status-tag-dropdown .update-btn {
+  padding: 0.5em;
+  border-radius: 0.5em;
 }

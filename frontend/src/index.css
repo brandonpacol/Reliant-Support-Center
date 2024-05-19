@@ -9,10 +9,21 @@ body {
 
 button {
   border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+button:hover {
+  background-color: #b9c550;
+  color: white;
 }
 
 a {
   text-decoration: none;
+}
+
+select {
+  cursor: pointer;
 }
 
 textarea {

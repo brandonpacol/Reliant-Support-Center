@@ -15,11 +15,14 @@
 .input-container .input-field {
   flex: 1;
   padding: 0.5em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-color: #ddd;
+  border-radius: 0.5em;
 }
 
 .input-container #priority-select {
-  padding: 0.5em;
-  background-color: white;
+  flex: unset;
 }
 
 #submit-btn-container {
@@ -28,7 +31,7 @@
   justify-content: center;
 }
 
-#submit-btn {
+.submit-btn {
   background-color: #5D7790;
   color: white;
   padding: 0.5em;

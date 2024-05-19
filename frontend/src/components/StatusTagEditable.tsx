@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, ChangeEvent } from "react";
 import StatusTag from "./StatusTag";
 import { Status } from "../types/Ticket";
+import "./StatusTag.css";
 
 const StatusArray = Object.values(Status);
 
@@ -52,20 +53,20 @@ function StatusTagEditable({ status, updateTicket, style }: StatusTagEditablePro
   return (
     <div>
 
-      <div onClick={handleStatusClick}>
+      <div className="editable-status" onClick={handleStatusClick}>
         <StatusTag status={status} style={style} editable={true} />
       </div>
 
-      <div ref={dropdownRef} style={{ display: showDropdown ? "flex" : "none", flexDirection: "column", position: "absolute", backgroundColor: "white", marginTop: "0.8em", padding: "0.5em", borderRadius: "0.5em", boxShadow: "0px 2px 10px rgba(0,0,0,0.1)" }}>
+      <div ref={dropdownRef} className="status-tag-dropdown" style={{ display: showDropdown ? "flex" : "none" }}>
         {StatusArray.map((value) => {
           return (
-            <div style={{marginBottom: "0.5em"}}>
+            <div className="radio-option">
               <input id={`${value}-radio`} type="radio" value={value} name="status" onChange={handleChangeStatus} checked={value === currStatus} />
               <label htmlFor={`${value}-radio`}>{value}</label>
             </div>
           )
         })}
-        <button style={{padding: "0.5em", borderRadius: "0.5em"}} onClick={handleUpdateClick}>Update</button>
+        <button className="update-btn" onClick={handleUpdateClick}>Update</button>
       </div>
     </div>
   )

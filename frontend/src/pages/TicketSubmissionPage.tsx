@@ -70,17 +70,17 @@ function TicketSubmissionPage() {
 
             <div className="input-container">
               <label htmlFor="subject">Subject:</label>
-              <input className="input-field" style={{flex: 1, padding: "0.5em"}} type="text" id="subject" name="subject" value={title} onChange={handleTitleChange} />
+              <input className="input-field" type="text" id="subject" name="subject" value={title} onChange={handleTitleChange} />
             </div>
 
             <div className="input-container">
               <label htmlFor="description">Description:</label>
-              <textarea className="input-field" style={{flex: 1, padding: "0.5em"}} id="description" name="description" rows={5} value={desc} onChange={handleDescChange} />
+              <textarea className="input-field" id="description" name="description" rows={5} value={desc} onChange={handleDescChange} />
             </div>
 
             <div className="input-container">
               <label htmlFor="priority">Priority:</label>
-              <select id="priority-select" name="priority" value={priority} onChange={handlePriorityChange}>
+              <select id="priority-select" className="input-field" name="priority" value={priority} onChange={handlePriorityChange}>
                 <option value="3">Low</option>
                 <option value="2">Medium</option>
                 <option value="1">High</option>
@@ -88,7 +88,7 @@ function TicketSubmissionPage() {
             </div>
 
             <div id="submit-btn-container">
-              <button id="submit-btn" type="submit">Submit</button>
+              <button className="submit-btn" type="submit">Submit</button>
             </div>
 
           </form>

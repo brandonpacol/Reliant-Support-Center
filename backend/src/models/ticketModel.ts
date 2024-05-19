@@ -132,6 +132,9 @@ export async function getTickets(status?: string, priority?: string): Promise<Ti
       query += ` WHERE ${conditions.join(' AND ')}`;
     }
 
+    // Finally, sort by the updated time
+    query += ' ORDER BY Tickets.updatedTime DESC';
+
     // Prepare the query with the parameters
     const getStatement = await db.prepare(query);
 
