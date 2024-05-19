@@ -11,6 +11,10 @@ button {
   border: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 textarea {
   resize: none;
 }
@@ -32,11 +36,13 @@ tr {
 .page-container {
   padding: 1em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .page-container .form-container {
+  max-width: 80%;
   background-color: #e6f1fc;
   padding: 2em;
   border-radius: 1em;

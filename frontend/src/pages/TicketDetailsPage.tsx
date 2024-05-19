@@ -4,8 +4,15 @@ import Navbar from '../components/Navbar';
 import StatusTag from '../components/StatusTag';
 import StatusTagEditable from '../components/StatusTagEditable';
 import PriorityTag from '../components/PriorityTag';
+import BackNavigation from '../components/BackNavigation';
 import { Ticket } from '../types/Ticket';
 import "./TicketDetailsPage.css";
+
+const dateFormatOptions: Intl.DateTimeFormatOptions = {
+  month: '2-digit',
+  day: '2-digit', 
+  year: 'numeric'
+};
 
 function TicketDetailsPage() {
 
@@ -35,16 +42,6 @@ function TicketDetailsPage() {
     }
     fetchTicket();
   }, []);
-
-  if (!ticket) return null;
-
-  const createdTime = new Date(ticket.createdTime);
-  const updatedTime = new Date(ticket.updatedTime);
-  const options: Intl.DateTimeFormatOptions = {
-    month: '2-digit',
-    day: '2-digit', 
-    year: 'numeric'
-  };
 
   async function updateTicket(status: string) {
     if (ticket) {
@@ -77,13 +74,19 @@ function TicketDetailsPage() {
     }
   }
 
+  const createdTime = ticket ? new Date(ticket.createdTime) : null;
+  const updatedTime = ticket ? new Date(ticket.updatedTime) : null;
+
   return (
     <>
       <Navbar />
 
       <div className="page-container">
 
-        <div className="form-container">
+        <BackNavigation />
+
+        {ticket && createdTime && updatedTime && <div className="form-container">
+
           <h2 id="ticket-title">{ticket.title}</h2>
 
           <hr />
@@ -105,10 +108,11 @@ function TicketDetailsPage() {
           <p>{ticket.description}</p>
 
           <div id="date-container">
-            <span>Created: {createdTime.toLocaleString('en-us', options)}</span>
-            <span>Last updated: {updatedTime.toLocaleString('en-us', options)}</span>
+            <span>Created: {createdTime.toLocaleString('en-us', dateFormatOptions)}</span>
+            <span>Last updated: {updatedTime.toLocaleString('en-us', dateFormatOptions)}</span>
           </div>
-        </div>
+
+        </div>}
         
 
       </div>

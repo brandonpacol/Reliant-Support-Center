@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import BackNavigation from "../components/BackNavigation";
 import { useNavigate } from "react-router-dom";
 import "./TicketSubmissionPage.css";
 
@@ -57,8 +58,10 @@ function TicketSubmissionPage() {
       <Navbar />
 
       <div id="ticket-submission-page" className="page-container">
+        
+        <BackNavigation />
 
-        <div className="form-container">
+        <div className="form-container" style={{flexWrap: "wrap"}}>
           <h2 style={{marginTop: 0}}>Submit a New Ticket</h2>
 
           <hr />

@@ -1,5 +1,6 @@
 #ticket-container {
   width: 75em;
+  max-width: 95%;
 }
 
 #ticket-controls {

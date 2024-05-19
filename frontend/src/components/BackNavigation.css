@@ -1,0 +1,9 @@
+#back-navigation {
+  max-width: 100%;
+  width: 70em;
+  margin: 1em;
+}
+
+#back-chevron {
+  margin-right: 0.5em;
+}
