@@ -49,6 +49,7 @@
 
 #ticket-table {
   width: 100%;
+  table-layout: fixed;
 }
 
 #ticket-table thead {
@@ -58,7 +59,10 @@
 #ticket-table th#subject-heading {
   text-align: left;
   font-size: 1.1em;
-  width: 30em;
+}
+
+#ticket-table colgroup col:first-child {
+  width: 40%;
 }
 
 #ticket-table th {
@@ -74,7 +78,6 @@
 
 #ticket-table td.subject {
   text-align: left;
-  width: 30em;
 }
 
 #ticket-table td {

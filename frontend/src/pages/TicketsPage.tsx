@@ -87,6 +87,9 @@ function TicketsPage() {
 
           <div id="table-container">
             <table id="ticket-table">
+              <colgroup>
+                <col />
+              </colgroup>
               <thead>
                 <tr>
                   <th id="subject-heading">Subject</th>
@@ -102,6 +105,7 @@ function TicketsPage() {
                 })}
               </tbody>
             </table>
+            {tickets.length === 0 && <p style={{textAlign: "center"}}>No results to show</p>}
           </div>
         </div>
       </div>
