@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import StatusTag from '../components/StatusTag';
+import StatusTagEditable from '../components/StatusTagEditable';
 import PriorityTag from '../components/PriorityTag';
 import { Ticket } from '../types/Ticket';
-import "./TicketDetailsPage.css"
+import "./TicketDetailsPage.css";
 
 function TicketDetailsPage() {
 
@@ -41,6 +42,15 @@ function TicketDetailsPage() {
     year: 'numeric'
   };
 
+  function updateTicket(status: string) {
+    if (ticket) {
+      const newStatus = status;
+      const newTime = new Date(Date.now()).toISOString();
+      const newTicket: Ticket = { ...ticket, status: newStatus, updatedTime: newTime };
+      setTicket(newTicket);
+    }
+  }
+
   return (
     <>
       <Navbar />
@@ -59,6 +69,7 @@ function TicketDetailsPage() {
             </div>
 
             <div style={{display: "flex", gap: "1em"}}>
+              <StatusTagEditable status={ticket.status} updateTicket={updateTicket} />
               <StatusTag style={{width: "unset"}} status={ticket.status} />
               <PriorityTag style={{width: "unset"}} priority={ticket.priority} />
             </div>
