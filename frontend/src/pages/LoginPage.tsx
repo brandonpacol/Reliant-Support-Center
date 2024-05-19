@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./LoginPage.css";
 
 function LoginPage() {
 
@@ -43,16 +44,19 @@ function LoginPage() {
   }
 
   return (
-    <>
-      <h1>Reliant Support Center</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label><br/>
-        <input type="text" id="username" name="username" onChange={handleUsernameChange}/><br/>
-        <label htmlFor="password">Password:</label><br/>
-        <input type="password" id="password" name="password" onChange={handlePasswordChange} /><br/><br/>
-        <input type="submit" value="Login"/>
-      </form>
-    </>
+    <div className="page-container" id="login-page">
+      <div className="form-container" id="login-form-container">
+        <h1>Reliant Support Center</h1>
+        <form id="login-form" onSubmit={handleSubmit}>
+          <label htmlFor="username">Username:</label>
+          <input type="text" id="username" name="username" onChange={handleUsernameChange} required />
+          <label htmlFor="password">Password:</label>
+          <input type="password" id="password" name="password" onChange={handlePasswordChange} required />
+          
+          <button className="login-button" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
   )
 }
 

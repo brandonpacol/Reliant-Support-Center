@@ -1,0 +1,50 @@
+#login-page {
+  height: 100vh;
+  background-image: url('assets/map.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30em;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-color: #5D779040;
+  border-width: 0.2em;
+  border-style: solid;
+}
+
+#login-form-container h1 {
+  margin-top: 0;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  width: 15em;
+}
+
+#login-form input {
+  padding: 0.5em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-color: #ddd;
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+}
+
+#login-form label {
+  margin-bottom: 0.25em;
+}
+
+.login-button {
+  background-color: #5D7790;
+  color: white;
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  font-size: 1em;
+}

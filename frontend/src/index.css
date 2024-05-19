@@ -59,3 +59,7 @@ tr {
   border-radius: 1em;
   width: 50em;
 }
+
+.page-container .form-container h2 {
+  margin-top: 0;
+}
