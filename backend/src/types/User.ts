@@ -5,5 +5,5 @@ export interface User {
   firstName: string;
   lastName: string;
   password: string;
-  isAdmin: boolean;
+  isAdmin: number; // 0 = false. 1 = true. Need to convert this to boolean in JS logic
 }

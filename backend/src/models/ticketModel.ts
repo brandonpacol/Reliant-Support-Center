@@ -166,11 +166,12 @@ export async function updateTicket(ticketID: number, status: Status): Promise<bo
 
     const query = `
       UPDATE Tickets
-      SET status = ?
+      SET status = ?, updatedTime = ?
       WHERE ticketID = ?
     `;
 
-    const result = await db.run(query, [status, ticketID]);
+    const updatedTime = new Date(Date.now()).toISOString();
+    const result = await db.run(query, [status, updatedTime, ticketID]);
 
     console.log("successfully updated ticket");
 

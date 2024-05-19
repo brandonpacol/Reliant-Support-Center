@@ -13,10 +13,12 @@ interface StatusTagEditableProps {
 function StatusTagEditable({ status, updateTicket, style }: StatusTagEditableProps) {
 
   const [showDropdown, setShowDropdown] = useState(false);
+  const [originalStatus, setOriginalStatus] = useState(status);
   const [currStatus, setCurrStatus] = useState(status);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   function handleStatusClick() {
+    setCurrStatus(originalStatus);
     setShowDropdown(!showDropdown);
   }
 
@@ -28,12 +30,17 @@ function StatusTagEditable({ status, updateTicket, style }: StatusTagEditablePro
   function handleClickOutside(event: MouseEvent) {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setShowDropdown(false);
+      setCurrStatus(originalStatus);
     }
   }
 
   function handleChangeStatus(event: ChangeEvent<HTMLInputElement>) {
     setCurrStatus(event.target.value);
   }
+
+  useEffect(() => {
+    setOriginalStatus(status);
+  }, [status]);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -53,7 +60,7 @@ function StatusTagEditable({ status, updateTicket, style }: StatusTagEditablePro
         {StatusArray.map((value) => {
           return (
             <div style={{marginBottom: "0.5em"}}>
-              <input id={`${value}-radio`} type="radio" value={value} name="status" onChange={handleChangeStatus}/>
+              <input id={`${value}-radio`} type="radio" value={value} name="status" onChange={handleChangeStatus} checked={value === currStatus} />
               <label htmlFor={`${value}-radio`}>{value}</label>
             </div>
           )

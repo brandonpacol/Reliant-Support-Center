@@ -78,9 +78,12 @@ ticketRouter.get('/tickets/:id', validateTicketID, async (req: Request, res: Res
     if (id) { // Validate that an ID number is present
       
       const result = await getTicket(id);
-
+      console.warn(req.session.user?.isAdmin);
       if (result) {
-        res.json(result);
+        res.json({
+          ticket: result,
+          isAdmin: req.session.user?.isAdmin === 1 // Determine if the authenticated user can edit the ticket status
+        });
       } else {
         res.status(404).send("Ticket not found.")
       }
