@@ -107,16 +107,43 @@ export async function submitTicket(userID: number, title: string, description: s
  * Gets all tickets from the DB
  * @returns An array of Ticket data if the operation is successful
  */
-export async function getTickets(): Promise<Ticket[] | undefined> {
+export async function getTickets(status?: string, priority?: string): Promise<Ticket[] | undefined> {
   try {
 
     const db = await getDB();
 
-    const query = `
+    // Create initial query
+    let query = `
       SELECT Tickets.*, Users.userID,  Users.username,  Users.firstName, Users.lastName
       FROM Tickets
-      INNER JOIN Users ON Tickets.userID = Users.userID`;
-    const tickets: Ticket[] = await db.all(query);
+      INNER JOIN Users ON Tickets.userID = Users.userID`
+    ;
+
+    // Append conditions if necessary
+    let conditions = [];
+    if (status) {
+      conditions.push(`Tickets.status = ?`);
+    }
+    if (priority) {
+      conditions.push(`Tickets.priority = ?`);
+    }
+
+    if (conditions.length > 0) {
+      query += ` WHERE ${conditions.join(' AND ')}`;
+    }
+
+    // Prepare the query with the parameters
+    const getStatement = await db.prepare(query);
+
+    const params: string[] = [];
+    if (status) {
+      params.push(status);
+    }
+    if (priority) {
+      params.push(priority);
+    }
+
+    const tickets: Ticket[] = await getStatement.all(params);
 
     console.log("successfully retrieved tickets");
     return tickets;

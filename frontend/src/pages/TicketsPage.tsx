@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import StatusTag from "../components/StatusTag";
 import PriorityTag from "../components/PriorityTag";
-import { Ticket } from "../types/Ticket";
+import { Priority, Ticket } from "../types/Ticket";
+import { Status } from "../types/Ticket";
 import "./TicketsPage.css"
 
 function TicketsPage() {
@@ -11,12 +12,24 @@ function TicketsPage() {
   const navigate = useNavigate();
   
   const [tickets, setTickets] = useState<Ticket[]>([]);
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [selectedPriority, setSelectedPriority] = useState("");
 
   useEffect(() => {
     async function fetchTickets() {
       try {
 
-        const response = await fetch("/api/tickets");
+        let url = "/api/tickets";
+        let queryParams = new URLSearchParams();
+        if (selectedStatus !== "") {
+          queryParams.set("status", selectedStatus);
+        }
+        if (selectedPriority !== "") {
+          queryParams.set("priority", selectedPriority);
+        }
+        url += queryParams.size > 0 ? "?" + queryParams.toString() : "";
+
+        const response = await fetch(url);
 
         if (response.ok) {
           const data: Ticket[] = await response.json();
@@ -30,10 +43,18 @@ function TicketsPage() {
       }
     }
     fetchTickets();
-  }, []);
+  }, [selectedStatus, selectedPriority]);
 
-  async function handleNewTicket() {
+  function handleNewTicket() {
     navigate('/submit-ticket');
+  }
+
+  function handleStatusChange(event: ChangeEvent<HTMLSelectElement>) {
+    setSelectedStatus(event.target.value);
+  }
+
+  function handlePriorityChange(event: ChangeEvent<HTMLSelectElement>) {
+    setSelectedPriority(event.target.value);
   }
 
   return (
@@ -46,18 +67,18 @@ function TicketsPage() {
             <h2>Tickets</h2>
 
             <div id="controls-container">
-              <select name="status" className="status-select">
+              <select name="status" className="status-select" value={selectedStatus} onChange={handleStatusChange}>
                 <option value="">All Status</option>
-                <option value="open">Open</option>
-                <option value="in progress">In Progress</option>
-                <option value="closed">Closed</option>
+                <option value={Status.Open}>Open</option>
+                <option value={Status.InProgress}>In Progress</option>
+                <option value={Status.Resolved}>Resolved</option>
               </select>
 
-              <select name="priority" className="priority-select">
+              <select name="priority" className="priority-select" value={selectedPriority} onChange={handlePriorityChange}>
                 <option value="">All Priority</option>
-                <option value="1">High</option>
-                <option value="2">Medium</option>
-                <option value="3">Low</option>
+                <option value={Priority.Low}>Low</option>
+                <option value={Priority.Medium}>Medium</option>
+                <option value={Priority.High}>High</option>
               </select>
 
               <button id="ticket-btn" onClick={handleNewTicket}>+ New Ticket</button>

@@ -53,8 +53,11 @@ ticketRouter.post('/tickets', async (req: Request, res: Response) => {
 // GET /tickets request
 ticketRouter.get('/tickets', async (req: Request, res: Response) => {
   try {
+
+    const status = req.query.status as string | undefined;
+    const priority = req.query.priority as string | undefined;
     
-    const result = await getTickets();
+    const result = await getTickets(status, priority);
 
     if (result) {
       res.json(result);
@@ -102,6 +105,8 @@ ticketRouter.get('/tickets/:id', validateTicketID, async (req: Request, res: Res
 // Request body must contain the updated status
 ticketRouter.put('/tickets/:id', validateTicketID, async (req: Request, res: Response) => {
   try {
+
+    if (!req.session.user?.isAdmin) res.status(401).send("Unauthorized.");
 
     const body: TicketRequestBody = req.body;
 
