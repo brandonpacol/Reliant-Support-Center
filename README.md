@@ -1,5 +1,5 @@
 # Reliant Mission Support
-This demo project is a ticket support center system for Reliant Mission. In this project, I hope to demonstract my full stack abilities to design and develop a system from the database, server, and client side aspects.
+This demo project is a ticket support center system for Reliant Mission. In this project, I hope to demonstrate my full stack abilities to design and develop a system from the database, server, and client side aspects.
 
 ## Overview
 Upon launching the website, you will be greeted with a login screen.
