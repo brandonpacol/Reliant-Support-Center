@@ -73,9 +73,9 @@ function TicketsPage() {
             <div id="controls-container">
               <select name="status" className="status-select" value={selectedStatus} onChange={handleStatusChange}>
                 <option value="">All Status</option>
-                <option value={Status.Open}>Open</option>
-                <option value={Status.InProgress}>In Progress</option>
-                <option value={Status.Resolved}>Resolved</option>
+                <option value={Status.Open}>{Status.Open}</option>
+                <option value={Status.InProgress}>{Status.InProgress}</option>
+                <option value={Status.Resolved}>{Status.Resolved}</option>
               </select>
 
               <select name="priority" className="priority-select" value={selectedPriority} onChange={handlePriorityChange}>

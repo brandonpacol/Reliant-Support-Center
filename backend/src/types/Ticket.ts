@@ -22,7 +22,7 @@ export enum Priority {
 // Using strings so we can easily view the status from the DB.
 // Not using numbers since there's no inherent sorting with statuses.
 export enum Status {
-  Open = "open",
-  InProgress = "in progress",
-  Resolved = "resolved"
+  Open = "Open",
+  InProgress = "In Progress",
+  Resolved = "Resolved"
 }
