@@ -5,7 +5,7 @@ This demo project is a ticket support center system for Reliant Mission. In this
 Upon launching the website, you will be greeted with a login screen.
 ![Login Page](https://github.com/brandonpacol/Reliant-Support-Center/blob/main/readme/01-LoginPage.png)
 
-After entering your credentials, you will see your tickets home page. Here, you can filter tickets by status and priority. Users will only be able to see their tickets. Only admins can see ALL tickets and update them accordingly.
+After entering your credentials, you will see your tickets home page. Here, you can filter tickets by status and priority. Users will only be able to see their tickets. Admins can see ALL tickets and update them accordingly.
 ![Tickets Page](https://github.com/brandonpacol/Reliant-Support-Center/blob/main/readme/02-TicketsPage.png)
 
 Pressing on a ticket from the ticket's table will bring you to the details page of the Ticket. You can view the full description of the ticket on this page. Only admins will be able to update the status of the ticket.
@@ -29,7 +29,7 @@ After cloning the git repo, you will need to run the following commands to start
 4. Open http://localhost:3000 to start using the application!
 
 You may log in with the following usernames:
-- brandon
+- brandon (admin user)
 - john
 - ben
 
