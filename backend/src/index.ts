@@ -8,7 +8,8 @@ import ticketRouter from './routes/ticketRoutes';
 import userRouter from './routes/userRoutes';
 
 dotenv.config();
-const sessionSecret = process.env.SESSION_SECRET;
+// Had issues generating the env file with the generate-env script. Would NOT do this in production, but hardcoding a secret here so the project can easily be run.
+const sessionSecret = "4dfe9844f2f50ae8ef321620d62d92aa4c12be226babff223fc87a771bd5f84e"; //process.env.SESSION_SECRET;
 if (!sessionSecret) {
   throw new Error('SESSION_SECRET is not set in the environment variables');
 }

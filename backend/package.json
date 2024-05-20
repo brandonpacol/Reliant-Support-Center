@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "npx ts-node --files src/index.ts",
-    "init": "npx ts-node src/initialize.ts && npx ts-node src/generate-env.ts"
+    "init": "npx ts-node src/initialize.ts"
   },
   "author": "Brandon Pacol",
   "license": "ISC",

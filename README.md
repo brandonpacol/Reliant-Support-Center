@@ -23,8 +23,8 @@ Pressing "Logout" at any point will log you out of the session and you will need
 
 ## Instructions
 After cloning the git repo, you will need to run the following commands to start the project.
-1. npm run init
-2. npm run build
+1. npm run build
+2. npm run init
 3. npm run start
 4. Open http://localhost:3000 to start using the application!
 
