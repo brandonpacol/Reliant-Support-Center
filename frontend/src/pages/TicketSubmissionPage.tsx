@@ -73,7 +73,7 @@ function TicketSubmissionPage() {
 
             <div className="input-container">
               <label htmlFor="subject">Subject:</label>
-              <input className="input-field" type="text" id="subject" name="subject" value={title} onChange={handleTitleChange} required />
+              <input className="input-field" type="text" id="subject" name="subject" value={title} onChange={handleTitleChange} required maxLength={100} />
             </div>
 
             <div className="input-container">
