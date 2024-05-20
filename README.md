@@ -43,7 +43,7 @@ The following technologies were used to develop this project:
 
 - Client: React with Typescript - I decided to go with React as it is the front-end framework I am most comfortable developing in. I used Typescript as well for the same reasons as the server side since it made the code more readabable and I was able to catch type errors before runtime.
 
-Before coding, I created a short design journal located in designs/journal.md to document my plan before executing any code. For a full look into my thought process there of designing the database, routes, and UI drafts, you can visit that page here:
+Before coding, I created a short design journal located in designs/journal.md to document my plan before executing any code. For a full look into my thought process of designing the database, routes, and UI drafts, you can visit that page here:
 [Design Journal](https://github.com/brandonpacol/Reliant-Support-Center/blob/main/designs/journal.md)
 
 Thank you for the opportunity to do this project! I look forward to speaking with you for more details on how I accomplished this.
