@@ -3,16 +3,21 @@ This demo project is a ticket support center system for Reliant Mission. In this
 
 ## Overview
 Upon launching the website, you will be greeted with a login screen.
+![Login Page](https://github.com/brandonpacol/Reliant-Support-Center/blob/main/readme/01-LoginPage.png)
 
 After entering your credentials, you will see your tickets home page. Here, you can filter tickets by status and priority. Users will only be able to see their tickets. Only admins can see ALL tickets and update them accordingly.
+![Tickets Page](https://github.com/brandonpacol/Reliant-Support-Center/blob/main/readme/02-TicketsPage.png)
 
 Pressing on a ticket from the ticket's table will bring you to the details page of the Ticket. You can view the full description of the ticket on this page. Only admins will be able to update the status of the ticket.
 
 Regular user view:
+![Ticket Details Page](https://github.com/brandonpacol/Reliant-Support-Center/blob/main/readme/03-TicketDetailsPage.png)
 
 Admin view:
+![Ticket Details Page - Admin](https://github.com/brandonpacol/Reliant-Support-Center/blob/main/readme/04-TicketDetailsPage-Admin.png)
 
 Pressing on the "New Ticket" button from the tickets page will open the Ticket Submission page. You can enter details such as the subject, description, and priority to submit a new ticket.
+![Ticket Submission Page](https://github.com/brandonpacol/Reliant-Support-Center/blob/main/readme/05-TicketSubmissionPage.png)
 
 Pressing "Logout" at any point will log you out of the session and you will need to sign in again.
 
