@@ -106,6 +106,9 @@ export async function submitTicket(userID: number, title: string, description: s
 
 /**
  * Gets all tickets from the DB
+ * @param user The current user requesting the tickets
+ * @param status The status of the tickets to filter by
+ * @param priority The priority of the tickets to filter by
  * @returns An array of Ticket data if the operation is successful
  */
 export async function getTickets(user: User, status?: string, priority?: string): Promise<Ticket[] | undefined> {

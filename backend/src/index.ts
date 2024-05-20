@@ -16,8 +16,10 @@ if (!sessionSecret) {
 const app = express();
 const port = 3000;
 
+// Used to parse json from requests
 app.use(bodyParser.json());
 
+// Setting up express session so we can check authenticated users
 app.use(session({
   secret: sessionSecret,
   resave: false,
@@ -25,13 +27,14 @@ app.use(session({
   cookie: { secure: 'auto', httpOnly: true, maxAge: 3600000 }
 }));
 
+// Setting up api routes
 app.use('/api', userRouter);
 app.use('/api', ticketRouter);
 
 // Serve static files from the dist folder build of the react app
 app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
-// Serve index.html for all routes to support routing
+// Serve index.html for all routes to support client routing
 app.get('*', checkUserIsAuthenticated, (req, res) => {
     res.sendFile(path.resolve(__dirname, '../../frontend/dist', 'index.html'));
 });

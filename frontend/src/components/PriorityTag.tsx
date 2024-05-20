@@ -1,6 +1,6 @@
 import React from "react";
 import { Priority } from "../types/Ticket";
-import { getPriorityName } from "../types/Ticket";
+import { getPriorityName } from "../helpers/utils";
 import "./PriorityTag.css"
 
 interface PriorityTag {
@@ -8,6 +8,7 @@ interface PriorityTag {
   style?: React.CSSProperties;
 }
 
+/** The Priority Tag component to display showing the priority of the ticket (ex. High, Medium, Low). */
 function PriorityTag({ priority, style }: PriorityTag) {
 
   const priorityStr = getPriorityName(priority) || "N/A";

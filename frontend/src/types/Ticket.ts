@@ -9,6 +9,8 @@ export interface Ticket {
   createdTime: string;
   updatedTime: string;
   username: string;
+
+  // These fields will be popuplated from the server when joining with the users table
   firstName: string;
   lastName: string;
 }
@@ -28,8 +30,4 @@ export enum Status {
   Open = "open",
   InProgress = "in progress",
   Resolved = "resolved"
-}
-
-export function getPriorityName(priorityValue: number): string | undefined {
-  return Priority[priorityValue];
 }

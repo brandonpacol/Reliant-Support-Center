@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import "./BackNavigation.css";
 
+/** The Back navigation component that will bring the user back to the tickets page. */
 function BackNavigation() {
 
   const navigate = useNavigate();

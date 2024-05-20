@@ -6,14 +6,10 @@ import StatusTagEditable from '../components/StatusTagEditable';
 import PriorityTag from '../components/PriorityTag';
 import BackNavigation from '../components/BackNavigation';
 import { Ticket } from '../types/Ticket';
+import { getFormattedDateString } from '../helpers/utils';
 import "./TicketDetailsPage.css";
 
-const dateFormatOptions: Intl.DateTimeFormatOptions = {
-  month: '2-digit',
-  day: '2-digit', 
-  year: 'numeric'
-};
-
+/** The Ticket Details Page displaying the details of a ticket (ex. ID, Title, Description, etc) */
 function TicketDetailsPage() {
 
   const { id } = useParams();
@@ -79,8 +75,8 @@ function TicketDetailsPage() {
     }
   }
 
-  const createdTime = ticket ? new Date(ticket.createdTime) : null;
-  const updatedTime = ticket ? new Date(ticket.updatedTime) : null;
+  const createdTime = ticket ? getFormattedDateString(ticket.createdTime) : null;
+  const updatedTime = ticket ? getFormattedDateString(ticket.updatedTime) : null;
 
   return (
     <>
@@ -113,8 +109,8 @@ function TicketDetailsPage() {
           <p>{ticket.description}</p>
 
           <div id="date-container">
-            <span>Created: {createdTime.toLocaleString('en-us', dateFormatOptions)}</span>
-            <span>Last updated: {updatedTime.toLocaleString('en-us', dateFormatOptions)}</span>
+            <span>Created: {createdTime}</span>
+            <span>Last updated: {updatedTime}</span>
           </div>
 
         </div>}

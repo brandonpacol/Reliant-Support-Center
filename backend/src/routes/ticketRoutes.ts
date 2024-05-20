@@ -144,6 +144,7 @@ ticketRouter.put('/tickets/:id', validateTicketID, async (req: Request, res: Res
   }
 });
 
+/** Middleware the check if the user is authenticated to make API requests. */
 function checkUserIsAuthenticated(req: Request, res: Response, next: Function) {
   if (!req.session.user) return res.status(401).send("Unauthorized.");
   next();

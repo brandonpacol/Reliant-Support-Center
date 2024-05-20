@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
+/** The navbar component displayed on all pages. */
 function Navbar() {
 
   const navigate = useNavigate();

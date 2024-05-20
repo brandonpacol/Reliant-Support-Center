@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import StatusTag from "../components/StatusTag";
 import PriorityTag from "../components/PriorityTag";
-import { Priority, Ticket } from "../types/Ticket";
-import { Status } from "../types/Ticket";
+import { Priority, Ticket, Status } from "../types/Ticket";
+import { getFormattedDateString } from "../helpers/utils";
 import "./TicketsPage.css"
 
+/** The Home Page displaying all Tickets. Users can filter tickets by Status and Priority here. */
 function TicketsPage() {
 
   const navigate = useNavigate();
@@ -128,13 +129,8 @@ function TableRow({ticket}: TableRowProps) {
 
   const navigate = useNavigate();
 
-  const createdTime = new Date(ticket.createdTime);
-  const updatedTime = new Date(ticket.updatedTime);
-  const options: Intl.DateTimeFormatOptions = {
-    month: '2-digit',
-    day: '2-digit', 
-    year: 'numeric'
-  };
+  const createdTime = getFormattedDateString(ticket.createdTime);
+  const updatedTime = getFormattedDateString(ticket.updatedTime);
 
   function handleRowClick() {
     if (ticket.ticketID) navigate(`/tickets/${ticket.ticketID}`);
@@ -145,8 +141,8 @@ function TableRow({ticket}: TableRowProps) {
       <td className="subject">{ticket.title}</td>
       <td><div className="tag-container"><StatusTag status={ticket.status}/></div></td>
       <td><div className="tag-container"><PriorityTag priority={ticket.priority}/></div></td>
-      <td>{createdTime.toLocaleString('en-us', options)}</td>
-      <td>{updatedTime.toLocaleString('en-us', options)}</td>
+      <td>{createdTime}</td>
+      <td>{updatedTime}</td>
     </tr>
   )
 }

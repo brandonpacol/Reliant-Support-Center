@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
+/** The Login Page shown as the main index screen */
 function LoginPage() {
 
   const navigate = useNavigate();

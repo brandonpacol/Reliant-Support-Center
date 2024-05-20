@@ -10,6 +10,7 @@ interface StatusTagProps {
   editable?: boolean;
 }
 
+/** The Status Tag component to display the status of a ticket (ex. Open, In Progress, Resolved) */
 function StatusTag({ status, style, editable = false }: StatusTagProps) {
 
   let statusColor = "transparent";

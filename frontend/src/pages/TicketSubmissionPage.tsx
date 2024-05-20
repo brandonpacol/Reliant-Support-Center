@@ -4,6 +4,7 @@ import BackNavigation from "../components/BackNavigation";
 import { useNavigate } from "react-router-dom";
 import "./TicketSubmissionPage.css";
 
+/** The Ticket Submission Page to submit a new ticket. */
 function TicketSubmissionPage() {
 
   const navigate = useNavigate();
