@@ -2,6 +2,7 @@
   max-width: 100%;
   width: 70em;
   margin: 1em;
+  cursor: pointer;
 }
 
 #back-chevron {
