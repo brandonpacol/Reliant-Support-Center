@@ -123,20 +123,24 @@ export async function getTickets(user: User, status?: string, priority?: string)
       INNER JOIN Users ON Tickets.userID = Users.userID`
     ;
 
-    // Append conditions if necessary
-    let conditions = [];
+    // Append conditions and params if necessary
+    const conditions: string[] = [];
+    const params: (string | number)[] = [];
     if (!user.isAdmin) { // if the user is not an admin, only get their tickets
       if (user.userID) {
         conditions.push(`Users.userID = ?`);
+        params.push(user.userID);
       } else {
         return undefined; // Don't return anything if we can't get the userID. Shouldn't get hit here.
       }
     }
     if (status) {
       conditions.push(`Tickets.status = ?`);
+      params.push(status);
     }
     if (priority) {
       conditions.push(`Tickets.priority = ?`);
+      params.push(priority);
     }
 
     if (conditions.length > 0) {
@@ -146,25 +150,7 @@ export async function getTickets(user: User, status?: string, priority?: string)
     // Finally, sort by the updated time
     query += ' ORDER BY Tickets.updatedTime DESC';
 
-    // Prepare the query with the parameters
-    const getStatement = await db.prepare(query);
-
-    const params: (string | number)[] = [];
-    if (!user.isAdmin) {
-      if (user.userID) {
-        params.push(user.userID);
-      } else {
-        return undefined; // Don't return anything if we can't get the userID. Shouldn't get hit here.
-      }
-    }
-    if (status) {
-      params.push(status);
-    }
-    if (priority) {
-      params.push(priority);
-    }
-
-    const tickets: Ticket[] = await getStatement.all(params);
+    const tickets: Ticket[] = await db.all(query, params);
 
     console.log("successfully retrieved tickets");
     return tickets;
