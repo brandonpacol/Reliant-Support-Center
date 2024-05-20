@@ -1,29 +1,92 @@
 [
   {
     "userID": 2,
-    "title": "Can't log in to my account",
-    "description": "I've put in the correct username and password but I still can't log in.",
+    "title": "Unable to update profile",
+    "description": "I have been trying to update my profile information for the past few days, but every time I click save, none of the changes are reflected. This is affecting my ability to manage my account details properly.",
+    "priority": 2,
+    "status": "Open",
+    "createdTime": "2024-04-15T09:15:00.000Z",
+    "updatedTime": "2024-04-15T09:15:00.000Z"
+  },
+  {
+    "userID": 3,
+    "title": "Donation receipt not received",
+    "description": "After making a donation of $100 to support a missionary, I expected to receive a receipt via email for my records. However, I have not received any confirmation or receipt, and I need it for tax purposes.",
+    "priority": 1,
+    "status": "In Progress",
+    "createdTime": "2024-03-22T14:22:45.000Z",
+    "updatedTime": "2024-03-23T10:00:00.000Z"
+  },
+  {
+    "userID": 2,
+    "title": "Error 500 on login",
+    "description": "Whenever I attempt to log into my account, I encounter a server error (Error 500). This issue has persisted for several days, and I am unable to access my account to manage my donations and personal information.",
     "priority": 1,
     "status": "Open",
-    "createdTime": "2024-05-12T02:23:20.403Z",
-    "updatedTime": "2024-05-12T02:23:20.403Z"
+    "createdTime": "2024-02-11T07:30:20.000Z",
+    "updatedTime": "2024-02-11T07:30:20.000Z"
   },
   {
     "userID": 3,
-    "title": "Can't make a donation",
-    "description": "I've tried to make a donation but I always receive an error screen.",
-    "priority": 2,
-    "status": "In Progress",
-    "createdTime": "2024-05-12T02:28:37.163Z",
-    "updatedTime": "2024-05-13T02:28:37.163Z"
-  },
-  {
-    "userID": 3,
-    "title": "Issues filtering tickets",
-    "description": "Occasionally, the wrong tickets are shown when filtering tickets.",
+    "title": "Issue with password reset",
+    "description": "I requested a password reset link, but when I click on the link in the email, it leads to a page that says 'link expired' or 'invalid link'. I need to reset my password as soon as possible.",
     "priority": 3,
     "status": "Resolved",
-    "createdTime": "2024-05-12T02:29:00.599Z",
-    "updatedTime": "2024-05-13T02:29:00.599Z"
+    "createdTime": "2024-05-01T11:50:30.000Z",
+    "updatedTime": "2024-05-02T09:15:00.000Z"
+  },
+  {
+    "userID": 2,
+    "title": "Can't find donation history",
+    "description": "I have been donating regularly, but my donation history is not showing up on my account page. I need to see the history for my records and to ensure all my donations have been processed correctly.",
+    "priority": 2,
+    "status": "Open",
+    "createdTime": "2024-01-20T13:45:10.000Z",
+    "updatedTime": "2024-01-20T13:45:10.000Z"
+  },
+  {
+    "userID": 3,
+    "title": "Website loading slowly",
+    "description": "For the past week, the website has been loading very slowly. It takes several minutes for each page to load, which is frustrating and time-consuming. I have tried different browsers but the problem persists.",
+    "priority": 3,
+    "status": "In Progress",
+    "createdTime": "2024-03-08T16:22:50.000Z",
+    "updatedTime": "2024-03-09T08:00:00.000Z"
+  },
+  {
+    "userID": 2,
+    "title": "Unable to contact support",
+    "description": "I tried to use the contact support form to submit a query, but the form is not submitting my request. It just keeps loading and nothing happens. I need to get in touch with support for assistance.",
+    "priority": 1,
+    "status": "Resolved",
+    "createdTime": "2024-04-18T18:30:25.000Z",
+    "updatedTime": "2024-04-19T11:00:00.000Z"
+  },
+  {
+    "userID": 3,
+    "title": "Problem with mobile app",
+    "description": "The mobile app crashes every time I try to open it. I have reinstalled it several times, but the problem still occurs. This is preventing me from managing my account on the go.",
+    "priority": 1,
+    "status": "Open",
+    "createdTime": "2024-02-25T08:15:35.000Z",
+    "updatedTime": "2024-02-25T08:15:35.000Z"
+  },
+  {
+    "userID": 2,
+    "title": "Can't update payment method",
+    "description": "I am trying to update my payment method for my recurring donations, but the system is not accepting my new credit card details. This issue needs to be resolved so my donations can continue without interruption.",
+    "priority": 2,
+    "status": "In Progress",
+    "createdTime": "2024-03-15T20:40:50.000Z",
+    "updatedTime": "2024-03-16T10:00:00.000Z"
+  },
+  {
+    "userID": 3,
+    "title": "Notification settings not saving",
+    "description": "I have been trying to update my notification settings to receive fewer emails, but every time I make changes and save them, the settings revert back to the default. This is causing me to receive too many notifications.",
+    "priority": 3,
+    "status": "Resolved",
+    "createdTime": "2024-01-29T06:55:15.000Z",
+    "updatedTime": "2024-01-30T12:00:00.000Z"
   }
 ]
