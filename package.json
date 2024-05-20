@@ -7,7 +7,8 @@
     "build:frontend": "cd frontend && npm install && npm run build",
     "build:backend": "cd backend && npm install && npm run build",
     "build": "npm run build:frontend && npm run build:backend",
-    "start": "cd backend && npm start"
+    "start": "cd backend && npm start",
+    "init": "cd backend && npm run init"
   },
   "author": "Brandon Pacol",
   "license": "ISC"
