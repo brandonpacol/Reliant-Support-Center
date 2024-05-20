@@ -36,13 +36,14 @@ You may log in with the following usernames:
 All users have the password "password". This should not be a valid password in a production environment, but this was the simplest way to generate users in my database to have this demo project running.
 
 ## Technologies and Design
-The following technologies were used to develop this project
+The following technologies were used to develop this project:
 - Database: SQLite - I went with SQLite as the database for this project since it requires minimal setup when sharing the project. There isn't any need to download or set up software like with MongoDB. Using SQL also made it easier to join data since it is a relational database.
 
 - Server: Express with Typescript - When choosing the server side tool, I had debated between using Next.js or Express. I decided to go with Express to clearly show the separation of concerns between the backend and frontend components, and demonstrate that I can clearly develop both sides without relying on the pattern of Next.js which encompasses both. I used Typescript for typing variables which made development easier for readability and catching type errors before runtime.
 
 - Client: React with Typescript - I decided to go with React as it is the front-end framework I am most comfortable developing in. I used Typescript as well for the same reasons as the server side since it made the code more readabable and I was able to catch type errors before runtime.
 
-Before coding, I created a short design journal located in designs/journal.md to document my plan before executing any code. For a full look into my thought process there, you can visit that page.
+Before coding, I created a short design journal located in designs/journal.md to document my plan before executing any code. For a full look into my thought process there of designing the database, routes, and UI drafts, you can visit that page here:
+[Design Journal](https://github.com/brandonpacol/Reliant-Support-Center/blob/main/designs/journal.md)
 
 Thank you for the opportunity to do this project! I look forward to speaking with you for more details on how I accomplished this.
