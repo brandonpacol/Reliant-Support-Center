@@ -69,10 +69,12 @@ function TicketDetailsPage() {
           setTicket(newTicket);
         } else {
           console.error("Error updating ticket.");
+          alert("An error occured updating the ticket. Please try again.");
         }
 
       } catch (err) {
         console.error("Error updating ticket: ", err);
+        alert("An error occured updating the ticket. Please try again.");
       }
     }
   }

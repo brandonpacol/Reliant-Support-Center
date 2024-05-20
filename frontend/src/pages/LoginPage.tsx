@@ -8,12 +8,15 @@ function LoginPage() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
   function handleUsernameChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setError(false);
     setUsername(event.target.value);
   }
 
   function handlePasswordChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setError(false);
     setPassword(event.target.value);
   }
 
@@ -36,10 +39,12 @@ function LoginPage() {
         navigate("/tickets");
       } else {
         console.error("Error logging in.");
+        setError(true);
       }
 
     } catch (err) {
       console.error("Error logging in: ", err);
+      setError(true);
     }
   }
 
@@ -52,7 +57,7 @@ function LoginPage() {
           <input type="text" id="username" name="username" onChange={handleUsernameChange} required />
           <label htmlFor="password">Password:</label>
           <input type="password" id="password" name="password" onChange={handlePasswordChange} required />
-          
+          {error && <span className="error-msg">Incorrect username or password. Please try again.</span>}
           <button className="login-button" type="submit">Login</button>
         </form>
       </div>

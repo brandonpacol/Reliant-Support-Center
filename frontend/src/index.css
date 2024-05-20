@@ -63,3 +63,8 @@ tr {
 .page-container .form-container h2 {
   margin-top: 0;
 }
+
+.error-msg {
+  color: red;
+  text-align: center;
+}

@@ -46,10 +46,12 @@ function TicketSubmissionPage() {
         navigate("/tickets");
       } else {
         console.error("Error submitting ticket.");
+        alert("There was an error submitting your ticket. Please try again.");
       }
 
     } catch (err) {
       console.error("Error submitting ticket: ", err);
+      alert("There was an error submitting your ticket. Please try again.");
     }
   }
 

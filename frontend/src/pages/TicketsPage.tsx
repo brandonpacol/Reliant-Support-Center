@@ -14,6 +14,7 @@ function TicketsPage() {
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [selectedStatus, setSelectedStatus] = useState("");
   const [selectedPriority, setSelectedPriority] = useState("");
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchTickets() {
@@ -36,10 +37,12 @@ function TicketsPage() {
           setTickets(data);
         } else {
           console.error("Error fetching tickets.");
+          setError(true);
         }
 
       } catch (err) {
         console.error("Error fetching tickets: ", err);
+        setError(true);
       }
     }
     fetchTickets();
@@ -107,6 +110,8 @@ function TicketsPage() {
             </table>
             {tickets.length === 0 && <p style={{textAlign: "center"}}>No results to show</p>}
           </div>
+
+          {error && <p className="error-msg">There was an error loading your tickets. Please refresh to try again.</p>}
         </div>
       </div>
     </>
